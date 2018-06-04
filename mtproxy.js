@@ -247,3 +247,8 @@ net.createServer(function(socket) {
 	});
 
 }).listen(configObj.port);
+
+// ==== GC =====================================================================
+if (typeof gc === 'function') {
+    setInterval(gc, 60000);
+}
