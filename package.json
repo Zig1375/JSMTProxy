@@ -1,23 +1,7 @@
 {
     "name": "node-engine",
     "version": "1.0.0",
-    "dependencies": {},
-    "devDependencies": {
-        "grunt": "x.x.x",
-        "grunt-contrib-clean": "x.x.x",
-        "grunt-contrib-copy": "x.x.x",
-        "grunt-contrib-concat": "x.x.x",
-        "grunt-contrib-uglify-es": "x.x.x",
-        "grunt-zip": "x.x.x",
-        "grunt-sass": "^2.1.0",
-        "grunt-mocha-test": "x.x.x",
-        "mocha": "x.x.x",
-        "google-auth-library": "^0.9.10",
-        "googleapis": "^15.0.0",
-        "time-grunt": "x.x.x"
-    },
-    "scripts": {
-        "grunt": "node ./grunt/grunt.js",
-        "test": "./node_modules/.bin/mocha -u tdd ./test"
+    "dependencies": {
+        "ping-lite": "^1.0.2"
     }
 }
