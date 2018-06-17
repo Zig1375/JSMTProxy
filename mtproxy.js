@@ -219,6 +219,7 @@ net.createServer(function (socket) {
         let payload = socket.cipher_dec_client.update(data);
 
         if (socket.server_socket == null) {
+            console.log(socket.dcId, server_idle_cons[socket.dcId])
             if (server_idle_cons[socket.dcId].length > 0) {
 
                 do {
@@ -226,7 +227,7 @@ net.createServer(function (socket) {
 
                     if (!socket.server_socket) {
                         // Сокет не найден
-                        console.log('SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1);
+                        console.log('1 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1, server_idle_cons[socket.dcId]);
                         socket.destroy();
                         return;
                     }
@@ -241,7 +242,7 @@ net.createServer(function (socket) {
                 socket.server_socket.setKeepAlive(false);
                 socket.server_socket.client_socket = socket;
             } else {
-                console.log('SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1);
+                console.log('2 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1, server_idle_cons[socket.dcId]);
                 socket.destroy();
                 return;
             }
