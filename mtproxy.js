@@ -97,6 +97,7 @@ function create_idle_server(id, server) {
     });
 
     client.on('error', (err) => {
+        console.error('Socket', err);
         client.destroy();
     });
 
