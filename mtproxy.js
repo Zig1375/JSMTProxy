@@ -47,6 +47,7 @@ function create_idle_server(id, server) {
         client.destroy();
     });
 
+    console.log('Connect to', server.port, server.ip)
     client.connect(server.port, server.ip, () => {
         client.session = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
@@ -286,7 +287,7 @@ function getTelegramServers() {
 
                 list[dcId].push({
                     ip: m[2],
-                    port: 443 //parseInt(m[3])
+                    port: parseInt(m[3])
                 });
             }
         }
