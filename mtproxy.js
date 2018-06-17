@@ -20,8 +20,8 @@ const telegram_idle_num = [MIN_IDLE_SERVERS, MIN_IDLE_SERVERS, MIN_IDLE_SERVERS,
 
 let server_idle_cons = {};
 for (let i = 0; i < telegram_servers.length; i++) {
-    if (typeof server_idle_cons[telegram_servers.dcId] === 'undefined') {
-        server_idle_cons[telegram_servers.dcId] = [];
+    if (typeof server_idle_cons[i] === 'undefined') {
+        server_idle_cons[i] = [];
     }
 }
 
