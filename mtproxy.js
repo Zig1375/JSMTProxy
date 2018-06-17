@@ -265,7 +265,7 @@ function start(telegram_servers) {
 
 // ==== GC =====================================================================
 if (typeof gc === 'function') {
-    setInterval(gc, configObj.gc);
+    setInterval(gc, configObj.gc || 120000);
 } else {
     console.error('gc is undefined')
 }
