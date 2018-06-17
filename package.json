@@ -1,7 +1,0 @@
-{
-    "name": "node-engine",
-    "version": "1.0.0",
-    "dependencies": {
-        "ping-lite": "^1.0.2"
-    }
-}

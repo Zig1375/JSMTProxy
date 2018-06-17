@@ -321,7 +321,7 @@ function getTelegramServers(callback) {
 }
 
 function pingIp(ip, callback) {
-    const Ping = require('ping-lite');
+    const Ping = require('./ping-lite.js');
     let ping = new Ping(ip);
 
     ping.send(function(err, ms) {
