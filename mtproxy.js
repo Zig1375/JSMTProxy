@@ -219,15 +219,13 @@ net.createServer(function (socket) {
         let payload = socket.cipher_dec_client.update(data);
 
         if (socket.server_socket == null) {
-            console.log(socket.dcId, server_idle_cons[socket.dcId])
             if (server_idle_cons[socket.dcId].length > 0) {
-
                 do {
                     socket.server_socket = server_idle_cons[socket.dcId].shift();
 
                     if (!socket.server_socket) {
                         // Сокет не найден
-                        console.log('1 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1, server_idle_cons[socket.dcId]);
+                        console.log('1 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1);
                         socket.destroy();
                         return;
                     }
@@ -242,7 +240,7 @@ net.createServer(function (socket) {
                 socket.server_socket.setKeepAlive(false);
                 socket.server_socket.client_socket = socket;
             } else {
-                console.log('2 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1, server_idle_cons[socket.dcId]);
+                console.log('2 SHORT ON IDLE SERVER CONNECTIONS! dcId:', socket.dcId + 1);
                 socket.destroy();
                 return;
             }
@@ -288,7 +286,7 @@ function getTelegramServers() {
 
                 list[dcId].push({
                     ip: m[2],
-                    port: parseInt(m[3])
+                    port: 443 //parseInt(m[3])
                 });
             }
         }
