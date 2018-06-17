@@ -15,15 +15,15 @@ const configObj = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 
 exec('/usr/bin/prlimit --pid ' + process.pid + ' --nofile=81920:81920', (error, stdout, stderr) => {});
 
-const telegram_servers = getTelegramServers();
-/*
+//const telegram_servers = getTelegramServers();
+
 const telegram_servers = [
     [{ip: "149.154.175.50", port: 443}],
     [{ip: "149.154.167.51", port: 443}],
     [{ip: "149.154.175.100", port: 443}],
     [{ip: "149.154.167.91", port: 443}],
     [{ip: "149.154.171.5", port: 443}]];
-*/
+
 const telegram_idle_num = [MIN_IDLE_SERVERS, MIN_IDLE_SERVERS, MIN_IDLE_SERVERS, MIN_IDLE_SERVERS, MIN_IDLE_SERVERS];
 
 let server_idle_cons = {};
@@ -55,7 +55,7 @@ function create_idle_server(id, server) {
         client.destroy();
     });
 
-    console.log('Connect to', server.port, server.ip)
+    console.log('Connect to', server.ip + ':' + server.port)
     client.connect(server.port, server.ip, () => {
         client.session = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 
@@ -296,7 +296,7 @@ function getTelegramServers() {
 
                 list[dcId].push({
                     ip: m[2],
-                    port: 443 //parseInt(m[3])
+                    port: parseInt(m[3])
                 });
             }
         }
