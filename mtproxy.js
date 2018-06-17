@@ -127,7 +127,7 @@ setInterval(() => {
 }, REPORT_CON_SEC * 1000);
 
 setInterval(() => {
-    let server_count = telegram_servers.length;
+    let server_count = telegram_idle_num.length;
     for (var i = 0; i < server_count; i++) {
         if (server_idle_cons[i].length < telegram_idle_num[i]) {
             telegram_servers[i].forEach(function(server) {
