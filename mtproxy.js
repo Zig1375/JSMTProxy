@@ -11,7 +11,7 @@ const fs = require('fs');
 const CON_TIMEOUT = 5 * 60000; //5 Mins
 const REPORT_CON_SEC = 10;
 const MIN_IDLE_SERVERS = 4;
-const configObj = JSON.parse(fs.readFileSync('config.json', 'utf8'));
+const configObj = JSON.parse(fs.readFileSync(`${__dirname}/config.json`, 'utf8'));
 
 exec('/usr/bin/prlimit --pid ' + process.pid + ' --nofile=81920:81920', (error, stdout, stderr) => {});
 
